@@ -57,6 +57,18 @@
         permanent: yes
       notify:
         - Setting up the firewalld
+        
+        
+    - name: Installing pip3
+      package:
+        name: python3-pip
+        state: present
+
+    - name: Installing docker compose
+      pip:
+       name: docker-compose
+          executable: pip3
+          state: present
 
   handlers:
     - name: Setting up the firewalld
