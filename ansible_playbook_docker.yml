@@ -10,7 +10,7 @@
         name: yum-utils
         state: latest
         
-    - name: Install yum utils
+    - name: Delete packages (podman and buildah)
       yum:
         name: "{{ packages }}"
         state: absent
