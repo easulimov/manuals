@@ -1,6 +1,6 @@
 ---
 - name: Install docker
-  gather_facts: No
+  ###gather_facts: No
   hosts: with_ssh
   become: yes
 
@@ -52,7 +52,7 @@
     - name: Setting up the firewalld (enable masquerade on public zone)
       ansible.posix.firewalld:
         zone: public
-        masquerade: yes
+        masquerade: true
         state: enabled
         permanent: yes
       notify:
