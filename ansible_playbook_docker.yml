@@ -72,3 +72,4 @@
       service:
         name: firewalld
         state: reloaded
+  #### Required ansible-galaxy collection install ansible.posix
