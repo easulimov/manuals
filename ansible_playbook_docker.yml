@@ -48,13 +48,7 @@
         name: docker
         state: started
         enabled: yes
-
-    - name: Enable firewalld
-      service: name=firewalld state=started enabled=yes
-
-    - name: Enable masquerade for Docker Networking
-      command: firewall-cmd --zone=public --add-masquerade --permanent
-    
+   
     - name: Setting up the firewalld
       firewalld:
         zone: public
