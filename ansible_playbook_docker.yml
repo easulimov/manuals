@@ -67,8 +67,8 @@
     - name: Installing docker compose
       pip:
        name: docker-compose
-          executable: pip3
-          state: present
+       executable: pip3
+       state: present
 
   handlers:
     - name: Setting up the firewalld
