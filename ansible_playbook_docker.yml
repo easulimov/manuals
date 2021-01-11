@@ -56,8 +56,7 @@
         state: enabled
         permanent: yes
       notify:
-        - Setting up the firewalld
-        
+        - Setting up the firewalld      
         
     - name: Installing pip3
       package:
