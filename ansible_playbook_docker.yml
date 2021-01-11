@@ -34,12 +34,38 @@
        state: latest
            
     - name: Install Docker
-      package:
-        name: docker-ce
-        state: latest
+      yum:
+       name: "{{ packages }}"
+       state: latest
+      vars:
+        packages:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
    
     - name: Start Docker service
       service:
         name: docker
         state: started
         enabled: yes
+
+    - name: Enable firewalld
+      service: name=firewalld state=started enabled=yes
+
+    - name: Enable masquerade for Docker Networking
+      command: firewall-cmd --zone=public --add-masquerade --permanent
+    
+    - name: Setting up the firewalld
+      firewalld:
+        zone: public
+        masquerade: yes
+        permanent: yes 
+        state: enabled
+      notify:
+        - Setting up the firewalld
+
+  handlers:
+    - name: Setting up the firewalld
+      service:
+        name: firewalld
+        state: reloaded
