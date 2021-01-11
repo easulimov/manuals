@@ -48,7 +48,16 @@
         name: docker
         state: started
         enabled: yes
-   
+        
+    - name: Setting up the firewalld (enable masquerade on public zone)
+      firewalld:
+        zone: public
+        masquerade: yes
+        state: enabled
+        permanent: yes
+      notify:
+        - Setting up the firewalld
+
     - name: Setting up the firewalld
       firewalld:
         zone: public
