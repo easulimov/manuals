@@ -77,6 +77,9 @@ ansible test -i hosts -m copy -a "src=/root/ansible_test.txt dest=/tmp mode=777"
 *** -b - become
 Ключевое слово become использует существующие инструменты повышения привилегий, такие как sudo, su, pfexec, doas, pbrun, dzdo, ksu, runas, machinectl и другие.
 
+Получение привилегий sudo для учетной записи на удаленном хосте, для выполнения команд с ключем -b или параметром become: yes :
+$ echo "$(whoami) ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$(whoami)
+
 
 
 
