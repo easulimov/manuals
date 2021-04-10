@@ -96,7 +96,7 @@ roles:
   - ANOTHER_ROLE_NAME
 
 #Вызов роли при выполнении определенного условия:
-- roles: {role: deploy_apache_web, when: ansible_system == "Linux"}
+- roles: { role: deploy_apache_web, when: ansible_system == "Linux" }
 
 
 Роль Ansible – это набор файлов, задач, шаблонов, переменных и обработчиков, которые вместе служат определенной цели, например, для настройки службы. 
