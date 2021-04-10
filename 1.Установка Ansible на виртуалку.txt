@@ -91,7 +91,12 @@ ansible-galaxy init deploy_apache_web
 
 
 #Для вызова роли требуется указать в playbook:
-- roles: deploy_apache_web
+roles: 
+  - deploy_apache_web
+  - ANOTHER_ROLE_NAME
+
+#Вызов роли при выполнении определенного условия:
+- roles: {role: deploy_apache_web, when: ansible_system == "Linux"}
 
 
 Роль Ansible – это набор файлов, задач, шаблонов, переменных и обработчиков, которые вместе служат определенной цели, например, для настройки службы. 
