@@ -80,5 +80,9 @@ docker exec -it pg10 bash
 # Attach local standard input, output, and error streams to a running container (press CTRL+ P and after CTRL+Q to detach from container without stopping the process)
 docker attach alpine_cont1
 
+# Port forwarding (-p)
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
 
+# Volume forwarding (-v)
+docker run -it -v /home/bart:/home/bart --name test_container1 alpine
 
