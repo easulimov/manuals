@@ -9,6 +9,8 @@ systemctl status docker
 firewall-cmd --reload
 
 
+
+
 ### Docker compose
 
 wget "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)"
@@ -20,3 +22,7 @@ chmod +x /usr/local/bin/docker-compose
 docker --version
 
 docker-compose --version
+
+### Manage Docker as a non-root user
+sudo groupadd docker
+sudo usermod -aG docker $USER
