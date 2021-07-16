@@ -37,6 +37,7 @@ sudo usermod -aG docker $USER
 
 # Download image frome repo
 docker pull ubuntu
+docker pull postgres:10.8
 
 # Show images
 docker images
@@ -70,7 +71,14 @@ docker start container_name
 docker stop container_name
 
 # Run container in background with name( -d, --detach - Run container in background and print container ID)
-docker run -d --name pg postgres
+docker run -d --name pg10 postgres:10.8 
+docker run -d -it --name alpine_cont1 alpine
+
+# Run a command in a running container
+docker exec -it pg10 bash
+
+# Attach local standard input, output, and error streams to a running container (press CTRL+ P and after CTRL+Q to detach from container without stopping the process)
+docker attach alpine_cont1
 
 
 
