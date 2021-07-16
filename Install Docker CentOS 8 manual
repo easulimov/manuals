@@ -23,6 +23,54 @@ docker --version
 
 docker-compose --version
 
+
+
+
 ### Manage Docker as a non-root user
 sudo groupadd docker
 sudo usermod -aG docker $USER
+
+
+
+
+### Some commands
+
+# Download image frome repo
+docker pull ubuntu
+
+# Show images
+docker images
+
+#  Create a writeable container layer over the specified image and start it. ( -i, --interactive,  -t, --tty )
+docker run -it ubuntu
+docker run -it ubuntu /bin/bash
+
+# Show only running containers 
+docker ps
+
+# Show all containers 
+docker ps -a
+
+# Remove the container (use name or  container id)
+docker rm container_name
+docker rm f8be30105ea4
+
+# Remove all existing containers
+docker rm $(docker ps -aq)
+
+# Remove image 
+docker rmi image_name
+
+
+# Remove all existing containers
+docker rm $(docker images -q)
+
+# Start and stop container
+docker start container_name
+docker stop container_name
+
+# Run container in background with name( -d, --detach - Run container in background and print container ID)
+docker run -d --name pg postgres
+
+
+
